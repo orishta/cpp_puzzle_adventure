@@ -3,7 +3,7 @@
 A two-player cooperative puzzle game built in C++ where teamwork is essential. Navigate through challenging rooms, solve riddles, and overcome obstacles together.
 
 ![C++](https://img.shields.io/badge/C++-17-blue?logo=cplusplus)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![Platform](https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 🎯 Overview
@@ -32,6 +32,7 @@ In this puzzle adventure, two players must coordinate their movements to overcom
 
 ### Technical Highlights
 - **Object-Oriented Architecture** — Clean separation with dedicated classes for each game entity
+- **Cross-Platform Support** — Runs on Windows, macOS, and Linux with platform-specific abstractions
 - **Physics Engine** — Spring acceleration and combined-force obstacle pushing
 - **Dynamic Lighting** — Torch system reveals hidden walls within a radius
 - **Interactive Riddles** — Loaded from external files with scoring system
@@ -76,7 +77,7 @@ The project follows strict OOP principles with emphasis on encapsulation and sin
 ├── Torch.cpp/h       # Dynamic lighting system
 │
 ├── Menu.cpp/h        # Main menu interface
-├── console.h         # Cross-platform console utilities
+├── console.h         # Cross-platform terminal abstraction (Windows/macOS/Linux)
 ├── utils.cpp/h       # Sound and helper functions
 └── Constants.h       # Game-wide constants
 ```
@@ -85,16 +86,28 @@ The project follows strict OOP principles with emphasis on encapsulation and sin
 
 ### Prerequisites
 - C++17 compatible compiler
-- Windows (uses Windows console API)
+- Terminal with ANSI escape code support (most modern terminals)
 
-### Visual Studio
+### Windows (Visual Studio)
 1. Open `Project1.sln`
 2. Build solution (`Ctrl+Shift+B`)
 3. Run (`F5`)
 
-### Command Line (MSVC)
+### Windows (Command Line - MSVC)
 ```bash
 cl /EHsc /std:c++17 *.cpp /Fe:game.exe
+```
+
+### macOS / Linux
+```bash
+g++ -std=c++17 -o game *.cpp
+./game
+```
+
+Or with Clang:
+```bash
+clang++ -std=c++17 -o game *.cpp
+./game
 ```
 
 ## 📁 Level Files
@@ -108,6 +121,7 @@ Create a text file following the format with map symbols. Mark the legend positi
 
 This project demonstrates:
 - Clean OOP design with proper encapsulation
+- Cross-platform development with preprocessor-based abstractions
 - Game loop architecture and state management
 - File I/O for level and riddle loading
 - Physics simulation (springs, collisions)
